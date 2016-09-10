@@ -3,21 +3,22 @@ import java.util.List;
 
 public class Foo {
   
-  private List<Integer> list;
+  private List<Integer> numbers;
   
   public void add(int i) {
-    if(list == null) {
-      list = new ArrayList<>();
+    if(numbers == null) {
+      numbers = new ArrayList<>();
     }
-    list.add(i);
+    numbers.add(i);
   }
   
   public void remove(int i) {
-    if(list.contains(i))
-      list.remove(i);
+    if(numbers != null)
+      numbers.remove(i);
   }
   
   public int sum() {
-    return list.stream().mapToInt(Integer::intValue).sum();
+    return (numbers == null) ? 0 : 
+    numbers.stream().mapToInt(Integer::intValue).sum();
   }
 }
